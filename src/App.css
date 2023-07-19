@@ -44,9 +44,8 @@
 
 }
 
+
 .addProducts{
-  
-  text-decoration: none;
   color: brown;
   background-color: rgb(255, 245, 231);
   border: 2px solid brown;
@@ -56,6 +55,47 @@
   /* position: absolute;
   top: 160px;
   right: 20px; */
+}
+
+.removeProducts{
+  margin-top: 2px;
+  background-color: brown;
+  color: white;
+  border: 2px solid brown;
+  width: 150px;
+  font-weight: bolder;
+  box-shadow: 2px 2px 2px black;
+}
+
+.flexbox{
+  display: inline-flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+
+.removalTxt{
+  background-color: rgb(214, 169, 102);
+  color: white;
+}
+
+.cart-items{
+  position: absolute;
+  top: 50px;
+  right: 10px;
+}
+
+.addToCart{
+  background-color: azure;
+  color: black;
+  border: 2px solid brown;
+  width: 150px;
+  font-weight: bolder;
+  box-shadow: 2px 2px 2px black;
+}
+
+.cartTitle{
+  color: rgb(255, 245, 231);
+  text-shadow: 4px 5px 3px black;
 }
 
 button:active{

@@ -5,10 +5,11 @@ function Header(props){
             <h1 className="title">Benni's Bountiful Bookstore</h1>
             <h3 className="title">Where Box Sets Reign Supreme</h3>
             <nav>
-                <button><a>HOME</a></button>
+                <button><a href="./">HOME</a></button>
                 <button><a href="./">INVENTORY</a></button>
-                
+
             </nav>
+            
         </header>
 
     );

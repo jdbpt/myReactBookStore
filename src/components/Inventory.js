@@ -1,10 +1,11 @@
 import { useState } from "react";
 import Product from "./Product";
 import products from "./data";
+import Cart from "./Cart";
 
 /**Table display of Inventory */
 function Inventory(props){
-    
+    //*********useState**********8
     const [productList, setProductList] = useState(products);
 
     //function to add new products based on premade product
@@ -28,7 +29,9 @@ function Inventory(props){
             alt: "",
         }
     );
-
+    /**adding cart list to the store */
+    const [cartItems, setCartItems] = useState([]);
+    //*************button handlers***********/
     /**handleChange */
     const handleInputChange = (event)=>{
         setNewProduct({
@@ -53,8 +56,24 @@ function Inventory(props){
             });
         }
     };
+
+    /**Remove product function by title */
+    const handleRemoveProduct = (productTitle) => {
+        setProductList(productList.filter((product)=> product.title !== productTitle));
+    };
     
+    const handleAddToCart = (product) => {
+        const existingItem = cartItems.find((item) => item.title === product.title);
+        if(existingItem){
+            const updatedCartItems = cartItems.map((item)=> item.title === product.title ? {...item, quantity: item.quantity + 1} : "");
+            setCartItems(updatedCartItems);
+
+        } else{
+            setCartItems([...cartItems, {...product, quantity: 1}]);
+        }
+    };
    
+    //map functions
     const displayProducts = productList.map((product, index)=>{
         return(<Product title={product.title}
                  price={product.price}
@@ -69,9 +88,6 @@ function Inventory(props){
                  key={index}
                  />)
     });
-    //if this map is not set to a variable and is
-    //created in the return, then does not require
-    //a return call in the map
 
     return(
         <>
@@ -106,7 +122,17 @@ function Inventory(props){
             <input type="text" name="src" placeholder="Image Source" value={newProduct.src} onChange={handleInputChange}/>
             <input type="text" name="alt" placeholder="Alt Text" value={newProduct.alt} onChange={handleInputChange}/>
 
-            <button className="addProducts" onClick={handleAddProduct}>Add New Product</button>
+            <div className="flexbox">
+                <button className="addProducts" onClick={handleAddProduct}>Add New Product</button>
+                <button className="removeProducts" onClick={()=> handleRemoveProduct(newProduct.title)}>Remove Product</button>
+                <button className="addToCart" onClick={()=> handleAddToCart(newProduct.title)}>Add to Cart</button>
+
+            </div>
+            <div className="cart-items">
+                <Cart cartItems={cartItems}/>
+
+            </div>
+
             <table>
                 <thead>
                 <tr>
@@ -122,7 +148,7 @@ function Inventory(props){
                 </thead>
                
                 <tbody>
-                
+
                 {displayProducts}
                 </tbody>
             </table>
