@@ -1,7 +1,7 @@
 import Header from "../components/Header";
 function Home(){
     return(
-        <div>
+        <div className="homeBkrd">
             <Header/>
             <div className="home extraMargin">
             

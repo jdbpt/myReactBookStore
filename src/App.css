@@ -121,10 +121,16 @@
   padding-left: 10px;
 }
 
+.homeBkrd{
+  background-color: azure;
+  
+
+}
 .home{
   padding: 20px 20px 0px 20px;
   background-color: azure;
-  height: 150vh;
+  height: 200vh;
+  
 }
 
 .mission{
@@ -172,6 +178,7 @@
 .caveatHome{
   position: relative;
   top: 80px;
+  z-index: 1;
 
 }
 
