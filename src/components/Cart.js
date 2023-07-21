@@ -2,11 +2,12 @@
 function Cart({ cartItems }){
     return(
         <div>
-            <h1 className="cartTitle">Cart</h1>
+            <h2 className="cartTitle">Cart</h2>
             <ul>
-                {cartItems.map((item)=>{
-                    return(<li>{item.title} - Quantity: {item.quantity}</li>);
-                })}
+                {cartItems.map((item, index)=>(
+                    <li key={index}>{item.title} - Quantity: {item.quantity} </li>
+                    
+                ))}
             </ul>
         </div>
     );

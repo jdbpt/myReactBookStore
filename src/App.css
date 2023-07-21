@@ -39,6 +39,10 @@
 
 }
 
+.center{
+  text-align: center;
+}
+
 .inventory > table{
   border-collapse: collapse;
 
@@ -68,9 +72,17 @@
 }
 
 .flexbox{
-  display: inline-flex;
-  flex-direction: column;
+  display: flex;
+  flex-direction: row;
   margin-bottom: 5px;
+  padding-top: 5px;
+  justify-content: space-evenly;
+  
+}
+
+.allInvInputs{
+  width: fit-content;
+  margin: auto;
 }
 
 .removalTxt{
@@ -79,11 +91,17 @@
 }
 
 .cart-items{
-  position: absolute;
+  /* position: absolute;
   top: 50px;
-  right: 10px;
+  right: 10px; */
+  background-color: antiquewhite;
+  border-radius: 10px;
+  color: black;
+  padding: 10px;
+
 }
 
+/*button addToCart*/
 .addToCart{
   background-color: azure;
   color: black;
@@ -91,12 +109,70 @@
   width: 150px;
   font-weight: bolder;
   box-shadow: 2px 2px 2px black;
+  
+}
+
+.font18{
+  font-size: 18px;
 }
 
 .cartTitle{
-  color: rgb(255, 245, 231);
-  text-shadow: 4px 5px 3px black;
+  color: brown;
+  padding-left: 10px;
 }
+
+.home{
+  padding: 20px;
+  background-color: azure;
+  height: 150vh;
+}
+
+.mission{
+  font-size: larger;
+  line-height: 40px;
+}
+
+.vision{
+  /* text-align: center; */
+  font-size: larger;
+  line-height: 40px;
+
+}
+
+.highlights{
+  background-color: antiquewhite;
+  width: 25%;
+  padding: 20px;
+  margin-left: 20px;
+  float: right;
+  line-height: 40px;
+  border-radius: 10px;
+ 
+
+}
+
+.highlights > h2{
+  color: brown;
+}
+
+.about{
+  font-size: larger;
+  line-height: 40px;
+  background-color: antiquewhite;
+}
+
+
+.about>h2{
+  text-align: center;
+  color: brown;
+}
+
+.caveatHome{
+  position: relative;
+  top: 100px;
+
+}
+
 
 button:active{
   transform: translateY(2px) translateX(2px);
@@ -157,10 +233,11 @@ nav > button:hover{
   background-color: black;
 }
 
-input{
+.allInvInputs > input{
   background-color: azure;
   width: 125px;
   border: 2px solid brown;
   padding-bottom: 10px;
+  font-size: 18px;
   
 }

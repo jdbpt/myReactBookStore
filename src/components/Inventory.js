@@ -31,7 +31,8 @@ function Inventory(props){
     );
     /**adding cart list to the store */
     const [cartItems, setCartItems] = useState([]);
-    //*************button handlers***********/
+
+    //****************button handlers*************/
     /**handleChange */
     const handleInputChange = (event)=>{
         setNewProduct({
@@ -63,17 +64,29 @@ function Inventory(props){
     };
     
     const handleAddToCart = (product) => {
-        const existingItem = cartItems.find((item) => item.title === product.title);
-        if(existingItem){
-            const updatedCartItems = cartItems.map((item)=> item.title === product.title ? {...item, quantity: item.quantity + 1} : "");
+        //for any item in the cartItems array, does that object.title property equal the product passed to handleAddToCart
+        //(which is newProduct.title).  If it does, then save the product to existing product, else saves undefined to existing product
+        const existingProduct = cartItems.find((item) => item.title === product);
+        console.log(product + " This is the newProduct title: " + newProduct.title );
+        console.log("this is the existing Product " + existingProduct);
+        //if existing product is not undefined, then if for any object in cartItems does it match the object in existingProduct
+        //if it does then keep that items, and just increment its quantity by 1, else map the item
+        if(existingProduct){
+            const updatedCartItems = cartItems.map((item)=> item === existingProduct ? {...item, quantity: item.quantity +1} : item);
             setCartItems(updatedCartItems);
+            console.log("I am existing" + existingProduct.title);
 
         } else{
-            setCartItems([...cartItems, {...product, quantity: 1}]);
+            //if existingProduct is undefined, then setCartItems (add a new entry (object) to the cartItems array
+            // with a title property = to the product which is
+            //the newProduct.title, and set its quantity to 1)
+            setCartItems([...cartItems, {title: product, quantity: 1}]);
+            console.log("I am yet to exist " + product);
+            console.log(cartItems);
         }
     };
    
-    //map functions
+    //**************map functions****************
     const displayProducts = productList.map((product, index)=>{
         return(<Product title={product.title}
                  price={product.price}
@@ -87,8 +100,9 @@ function Inventory(props){
                  alt={product.alt}
                  key={index}
                  />)
-    });
+    });//end displayProducts
 
+    //**************Inventory return statement*******/
     return(
         <>
             {/* <button className="addProducts" onClick={() => 
@@ -110,26 +124,25 @@ function Inventory(props){
             }>
                 Add New Product
             </button> */}
-
-            <input type="text" name="title" placeholder="Title" value={newProduct.title} onChange={handleInputChange}/>
-            <input type="number" name="price" placeholder="Price" value={newProduct.price} onChange={handleInputChange}/>
-            <input type="text" name="author" placeholder="Author" value={newProduct.author} onChange={handleInputChange}/>
-            <input type="text" name="publisher" placeholder="Publisher" value={newProduct.publisher} onChange={handleInputChange}/>
-            <input type="text" name="publishDate" placeholder="Published Date" value={newProduct.publishDate} onChange={handleInputChange}/>
-            <input type="number" name="pageCount" placeholder="Page Count" value={newProduct.pageCount} onChange={handleInputChange}/>
-            <input type="text" name="iSBN10" placeholder="ISBN-10" value={newProduct.iSBN10} onChange={handleInputChange}/>
-            <input type="text" name="description" placeholder="Description" value={newProduct.description} onChange={handleInputChange}/>
-            <input type="text" name="src" placeholder="Image Source" value={newProduct.src} onChange={handleInputChange}/>
-            <input type="text" name="alt" placeholder="Alt Text" value={newProduct.alt} onChange={handleInputChange}/>
-
-            <div className="flexbox">
-                <button className="addProducts" onClick={handleAddProduct}>Add New Product</button>
-                <button className="removeProducts" onClick={()=> handleRemoveProduct(newProduct.title)}>Remove Product</button>
-                <button className="addToCart" onClick={()=> handleAddToCart(newProduct.title)}>Add to Cart</button>
-
-            </div>
             <div className="cart-items">
                 <Cart cartItems={cartItems}/>
+            </div>
+            <div className="allInvInputs">
+                <input type="text" name="title" placeholder="Title" value={newProduct.title} onChange={handleInputChange}/>
+                <input type="number" name="price" placeholder="Price" value={newProduct.price} onChange={handleInputChange}/>
+                <input type="text" name="author" placeholder="Author" value={newProduct.author} onChange={handleInputChange}/>
+                <input type="text" name="publisher" placeholder="Publisher" value={newProduct.publisher} onChange={handleInputChange}/>
+                <input type="text" name="publishDate" placeholder="Published Date" value={newProduct.publishDate} onChange={handleInputChange}/>
+                <input type="number" name="pageCount" placeholder="Page Count" value={newProduct.pageCount} onChange={handleInputChange}/>
+                <input type="text" name="iSBN10" placeholder="ISBN-10" value={newProduct.iSBN10} onChange={handleInputChange}/>
+                <input type="text" name="description" placeholder="Description" value={newProduct.description} onChange={handleInputChange}/>
+                <input type="text" name="src" placeholder="Image Source" value={newProduct.src} onChange={handleInputChange}/>
+                <input type="text" name="alt" placeholder="Alt Text" value={newProduct.alt} onChange={handleInputChange}/>
+            </div>
+            <div className="flexbox">
+                <button className="addProducts font18" onClick={handleAddProduct}>Add New Product</button>
+                <button className="removeProducts font18" onClick={()=> handleRemoveProduct(newProduct.title)}>Remove Product</button>
+                <button className="addToCart font18" onClick={()=> handleAddToCart(newProduct.title)}>Add to Cart</button>
 
             </div>
 
@@ -152,12 +165,14 @@ function Inventory(props){
                 {displayProducts}
                 </tbody>
             </table>
+
+          
             
         </>
         
 
-    );
+    );//end of Return
 
-}
+};//end of Inventory function
 
 export default Inventory;

@@ -8,7 +8,7 @@ function Store(props){
         <div>
             <Header/>
             <div className="inventory">
-                <h2 className="title extraMargin">Inventory</h2>
+                <h1 className="title extraMargin">Inventory</h1>
                 <Inventory/>
             </div>
         </div>
