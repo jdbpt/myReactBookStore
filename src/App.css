@@ -123,13 +123,14 @@
 
 .homeBkrd{
   background-color: azure;
+  height: max-content;
   
 
 }
 .home{
   padding: 20px 20px 0px 20px;
   background-color: azure;
-  height: 200vh;
+  height: 180vh;
   
 }
 
@@ -249,4 +250,8 @@ nav > button:hover{
   padding-bottom: 10px;
   font-size: 18px;
   
+}
+
+img{
+  width: 100px;
 }

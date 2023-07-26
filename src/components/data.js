@@ -1,3 +1,7 @@
+import Bayern from '../images/books_bayern.jpg';
+
+//resource on adding images: https://create-react-app.dev/docs/adding-images-fonts-and-files/
+
 let products = [
     {
         title: "The Hobbit and The Lord of the Rings Box Set",
@@ -74,7 +78,7 @@ let products = [
         pageCount: "N/A",
         iSBN10: "N/A",
         description: "(4) book collection (unofficial box set)",
-        src: "",
+        src: Bayern,
         alt: "Books of Bayern collection"
 
         

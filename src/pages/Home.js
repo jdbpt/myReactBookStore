@@ -56,7 +56,7 @@ function Home(){
                     </ul>
                 </div>
 
-                <p className="caveatHome">*Not all boxes and collections sustainably printed if mass market or not able to print in house
+                <p className="caveatHome">*Not all boxes and collections sustainably printed if mass market or not able to print in house<br/>
                     *Shipping delays and/or inabilities to any location with US embargos, as able alerted at check out
                 </p>
 
