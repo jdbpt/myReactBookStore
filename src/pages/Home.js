@@ -28,7 +28,7 @@ function Home(){
                         and non toxic inks*</li>
                         <li>Access to books that are generally no longer in print</li>
                         <li>Offer of some collections and box sets at some discounts</li>
-                        <li>Personalizable box sets and collects</li>
+                        <li>Personalizable box sets and collections</li>
                         <li>Book lights, journals, book marks, book covers, and many other book accessories</li>
                         <li>Only print books sold</li>
                         <li>International Delivery*</li>
@@ -57,7 +57,7 @@ function Home(){
                 </div>
 
                 <p className="caveatHome">*Not all boxes and collections sustainably printed if mass market or not able to print in house<br/>
-                    *Shipping delays and/or inabilities to any location with US embargos, as able alerted at check out
+                    *Shipping delays and/or inabilities to any location with US embargos, to be alerted at check out as able
                 </p>
 
             </div>
